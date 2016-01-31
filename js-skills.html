@@ -97,7 +97,11 @@
 </fieldset>
 
 <script>
-  // code here for above problem
+  var popUpButton = document.getElementById("popup-alert-button");
+  function showAlertBox() {
+    alert("Hey! I'm an alert box!");
+  }
+  popUpButton.addEventListener('click', showAlertBox);
 </script>
 
 
@@ -115,7 +119,12 @@
 </fieldset>
 
 <script>
-  // code here for above-problem
+  var greeting = document.getElementById("message-to-change");
+  var changeButton = document.getElementById("change-hello-to-goodbye-button");
+  function changeGreeting () {
+    greeting.innerText = "goodbye";
+  }
+  changeButton.addEventListener('click', changeGreeting);
 </script>
 
 <div class="hint">
@@ -144,7 +153,15 @@
 </fieldset>
 
 <script>
-  // code here for above problem
+var searchForm = document.getElementById('prevent-form-submission-form');
+
+function justAlert(evt) {
+    alert("We're not submitting anything!");
+    evt.preventDefault();
+}
+
+searchForm.addEventListener('submit', justAlert);
+
 </script>
 
 <div class="hint">
@@ -174,22 +191,15 @@
 </fieldset>
 
 <script>
-//  Here's a stub of a function you can use!
+function reverseString() {
+  var msg = "Porcupines are cute";
+  var newMsg = msg.split("").reverse().join("");
 
-//  function reverseString() {
-//    var msg = "Porcupines are cute";
-//
-//    // do some stuff here to reverse that string into a new variable
-//    var newMsg = "This should be the reversed string";
-//
-//    alert(newMsg);
-//  }
+  alert(newMsg);
+}
 
-// Here's a stub of event stuff you could use
-//
-
-//  var button = document.getElementById('reverse-string-button');
-//  button.addEventListener('click', reverseString);
+var button = document.getElementById('reverse-string-button');
+button.addEventListener('click', reverseString);
 </script>
 
 
@@ -212,8 +222,12 @@
   <input type="button" class="tricky-to-find" value="Pop-Up Please!">
 </fieldset>
 
+<script src="https://code.jquery.com/jquery.js"></script>
 <script>
-  // code here for above problem
+  function foundTheTrickyButton(evt) {
+      alert("I popped up, just like you asked.");
+    }
+  $(".tricky-to-find").click(foundTheTrickyButton);
 </script>
 
 <div class="hint">
@@ -240,7 +254,10 @@
 </fieldset>
 
 <script>
-  // put your code here
+  function dogify (evt) {
+    $('#kittenz-rule').attr("src", "http://img1.owned.com/media/images/1/7/0/4/17040/just_making_some_catsoup_540.jpg")
+  }
+  $('#kittenz-rule').dblclick(dogify);
 </script>
 
 <div class="hint">
@@ -273,7 +290,10 @@
 </fieldset>
 
 <script>
-  // put your code here
+  function showPorcupine (evt) {
+    $('#cute-porcupine-image').delay(1000).slideDown("slow");
+  }
+  $('#make-a-porcupine').click(showPorcupine);
 </script>
 
 <div class="hint">
@@ -316,7 +336,12 @@
 </fieldset>
 
 <script>
-  // put your code here
+  function beAgreeable (evt) {
+    var faveFood = $('#favorite-food-input').val();
+    $('#agreeable-text').attr()
+    evt.preventDefault();
+  }
+  $('#agreeable-form').submit(beAgreeable);
 </script>
 
 <div class="hint">
