@@ -338,7 +338,7 @@ button.addEventListener('click', reverseString);
 <script>
   function beAgreeable (evt) {
     var faveFood = $('#favorite-food-input').val();
-    $('#agreeable-text').attr()
+    $('#agreeable-text').html("I like " + faveFood + ", too!");
     evt.preventDefault();
   }
   $('#agreeable-form').submit(beAgreeable);
@@ -370,7 +370,25 @@ button.addEventListener('click', reverseString);
 </fieldset>
 
 <script>
-  // put your code here
+  function playGuessingGame (evt) {
+    var random = Math.floor(Math.random()*100 + 1);
+    console.log(random);
+    var guess = 0;
+    while (guess !== random) {
+      guess = prompt("Choose a number from 1 to 100: ");
+      guess = Number(guess);
+      if (guess === random) {
+        alert("Congratulations! You correctly guessed the number.");
+      }
+      else if (guess > random) {
+        alert("Your guess is too high.");
+      }
+      else if (guess < random) {
+        alert("Your guess is too low.");
+      }
+    }
+  }
+  $('#play-guessing-game').click(playGuessingGame);
 </script>
 
 <div class="hint">
@@ -410,7 +428,43 @@ button.addEventListener('click', reverseString);
 </fieldset>
 
 <script>
-  // put your code here
+// I spent a ton of time on this one, and haven't found a way
+// to tease apart the interdependence of the two functions, or
+// a way to explicitly wait for another form submission to move on.
+
+  // function assessGuess (evt) {
+  //   evt.preventDefault();
+  //   var random = Math.floor(Math.random()*100 + 1);
+  //   var guess = 0;
+  //   var message = "";
+  //   console.log(random);
+  //   while (guess !== random) {
+  //     guess = $('#number-guessed').val();
+  //     if (guess === random) {
+  //       message = "Congratulations! You correctly guessed the number.";
+  //     }
+  //     else if (guess > random) {
+  //       message = "Your guess is too high.";
+  //     }
+  //     else if (guess < random) {
+  //       message = "Your guess is too low.";
+  //     }
+  //     $('#number-guessing-msg').html(message);
+  //   }
+  //   $('#play-guessing-game-2').prop("disabled", false);
+  //   $('#try-this-number').prop("disabled", true);
+  //   $('#number-guessed').prop("disabled", true);
+  // }
+
+  // function playGame (evt) {
+  //   $('#try-this-number').prop("disabled", false);
+  //   $('#number-guessed').prop("disabled", false);
+  //   $('#play-guessing-game-2').prop("disabled", true);
+  // } 
+ 
+  // $('#play-guessing-game-2').click(playGame);
+  // $('#guessing-game-2-form').submit(assessGuess); 
+
 </script>
 
 
@@ -446,8 +500,27 @@ button.addEventListener('click', reverseString);
 
 <script>
     var PRIME_COLORS = ['orange', 'midnightblue', 'darkgoldenrod', 'green', 'purple'];
+    var nextPrimes = [];
+    for (var i = 12; i < 32; i++) { // 32 is so that I don't have an infinite loop, since I know I will reach at least 5 more primes before then.
+      var isPrime = true;
+      for (var j = 2; j<i; j++) {
+        if ((i) % j === 0) {
+          isPrime = false;
+        }
+      }
+      if (isPrime === true) {
+        nextPrimes.push(i);
+        if (nextPrimes.length === 5){
+          break;
+        }
+      }  
+    }
+    console.log(nextPrimes);
+    // I made sure I correctly created the array of next primes, then had to break to make dinner
+    // for (var k=0; k<5; k++) {
+    //   $
+    // }
 
-  // put the rest of your code here
 </script>
 
 
